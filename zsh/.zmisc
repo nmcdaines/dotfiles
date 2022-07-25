@@ -1,0 +1,9 @@
+# =========================================================
+# Misc
+# =========================================================
+
+# Search
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules,.git,dist,.next}"'
+
+# iTerm shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

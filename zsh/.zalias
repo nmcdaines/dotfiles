@@ -1,0 +1,55 @@
+# =========================================================
+# Alias'
+# =========================================================
+
+# RoR
+
+alias bur="bundle exec rails server -p 4000 -b 0.0.0.0"
+alias bur-debug="WEB_DEBUG=true rails s -p 4000"
+alias console="spring stop & bundle exec rails c"
+alias rmf="foreman start"
+alias rmb="bundle exec rails server -p 4000 -b 0.0.0.0"
+alias swag='bin/rails rswag:specs:swaggerize && spring stop'
+
+# NodeJS
+alias jest="yarn run jest --config jest.json"
+
+# Git
+alias gitrebase="git fetch && git rebase origin/master"
+alias gitprune="git branch --merged | egrep -v \"(^\*|master|dev|main|develop|staging)\" | xargs git branch -d"
+alias gs="git status"
+
+# ZSH Config
+alias editzsh="vi ~/.zshrc"
+alias reload="source ~/.zshrc"
+
+# Process Kill
+alias killall='pgrep -f "^(ruby|puma|node)" | xargs kill -9'
+alias killnode='pgrep -f "^(node)" | xargs kill -9'
+alias killrails='pgrep -f "^(ruby|puma)" | xargs kill -9'
+
+# Foreman
+alias foreman-test="foreman start -f ProcfileCucumber"
+
+# Github
+alias prw="gh pr list --author @me --web"
+alias prc="gh pr list --author @me"
+
+# Sidekiq
+alias sk="bundle exec sidekiq -C ./config/sidekiq/sidekiq_primary.yml"
+
+# AWS Valut
+export AWS_SESSION_TOKEN_TTL=3h
+export AWS_ASSUME_ROLE_TTL=3h
+
+alias ave="aws-vault exec"
+alias prod-console-readonly="aws-vault exec prod -- bundle exec rake aws:ssh:host STACK=master READ_ONLY=true"
+alias stg-console-readonly="aws-vault exec staging -- bundle exec rake aws:ssh:host STACK=staging READ_ONLY=true"
+alias stg-console-write="aws-vault exec staging -- bundle exec rake aws:ssh:host STACK=staging READ_ONLY=false"
+
+# Editor
+alias vi="nvim"
+alias vim="nvim"
+
+# Cat
+# alias cat="bat"
