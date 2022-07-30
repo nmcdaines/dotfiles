@@ -2,11 +2,6 @@
 # Exports
 # =========================================================
 
-
-# Ruby
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-eval "$(rbenv init - zsh)"
-
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -15,3 +10,4 @@ export NVM_DIR="$HOME/.nvm"
 # Editor Config
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+

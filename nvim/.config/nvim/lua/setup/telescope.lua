@@ -1,4 +1,6 @@
-require("telescope").setup({})
+require("telescope").setup({
+  defaults = { file_ignore_patterns = {"node_modules", ".next", "tmp"} }
+})
 
 -- vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope file_files<CR>', { silent = true })
 
