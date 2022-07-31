@@ -51,4 +51,8 @@ require("nvim-treesitter.configs").setup({
 })
 -- Setup treesitter
 local ts = require("nvim-treesitter.configs")
-ts.setup({ ensure_installed = "all", highlight = { enable = true } })
+ts.setup({
+  ensure_installed = "all",
+  ignore_install = { "php", "phpdoc" },
+  highlight = { enable = true },
+})
