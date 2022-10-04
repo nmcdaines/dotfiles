@@ -126,4 +126,11 @@ return require('packer').startup(function()
     'ThePrimeagen/harpoon',
     config = get_setup("harpoon")
   }
+  
+  use {'OmniSharp/Omnisharp-vim'}
+
+  use "rafamadriz/friendly-snippets"
+
+  use("L3MON4D3/LuaSnip")
+  use("saadparwaiz1/cmp_luasnip")
 end)

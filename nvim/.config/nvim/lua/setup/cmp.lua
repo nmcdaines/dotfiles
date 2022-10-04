@@ -5,7 +5,9 @@ cmp.setup({
   snippet = {
     expand = function(args)
       -- For `vsnip` user.
-      vim.fn["vsnip#anonymous"](args.body)
+      -- vim.fn["vsnip#anonymous"](args.body)
+
+      require'luasnip'.lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -43,6 +45,8 @@ cmp.setup({
     
     -- props will re-enable this
     -- { name = "path" },
+    
+    { name = 'luasnip' },
   },
   formatting = {
     format = lspkind.cmp_format({
@@ -75,4 +79,21 @@ cmp.setup({
 --     { name = "cmdline" },
 --   }),
 -- })
+
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+
+local ls = require("luasnip")
+local f = ls.function_node
+local postfix = require("luasnip.extras.postfix").postfix
+
+
+ls.add_snippets("all", {
+  postfix(".llog", {
+    f(function(_, parent)
+      return "console.log(\"" .. parent.snippet.env.POSTFIX_MATCH  .. "\", " .. parent.snippet.env.POSTFIX_MATCH .. ");"
+    end, {}),
+  })
+})
 
