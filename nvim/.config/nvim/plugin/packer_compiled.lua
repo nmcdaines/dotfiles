@@ -149,6 +149,12 @@ _G.packer_plugins = {
     path = "/Users/nated/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["dashboard-nvim"] = {
+    config = { 'require("setup/dashboard")' },
+    loaded = true,
+    path = "/Users/nated/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/nated/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -164,6 +170,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nated/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
+  },
+  jester = {
+    loaded = true,
+    path = "/Users/nated/.local/share/nvim/site/pack/packer/start/jester",
+    url = "https://github.com/David-Kunz/jester"
   },
   ["limelight.vim"] = {
     loaded = true,
@@ -289,14 +300,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require("setup/lsp")
-time([[Config for nvim-lspconfig]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require("setup/cmp")
-time([[Config for nvim-cmp]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require("setup/tree")
@@ -305,6 +308,10 @@ time([[Config for nvim-tree.lua]], false)
 time([[Config for telescope.nvim]], true)
 require("setup/telescope")
 time([[Config for telescope.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require("setup/cmp")
+time([[Config for nvim-cmp]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require("setup/treesitter")
@@ -313,6 +320,14 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for harpoon]], true)
 require("setup/harpoon")
 time([[Config for harpoon]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("setup/lsp")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+require("setup/dashboard")
+time([[Config for dashboard-nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-autopairs ]]
