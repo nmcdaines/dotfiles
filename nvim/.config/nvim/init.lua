@@ -166,3 +166,51 @@ if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 endif
 ]])
+
+
+-- code folding
+vim.cmd([[
+setlocal foldmethod=indent
+set nofoldenable
+set foldlevel=99
+]])
+
+-- reload config
+vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
+
+-- create scss file for jsx (rangeme project)
+function create_scss()
+  current_path = vim.fn.expand('%')
+  updated_extension, _ = string.gsub(current_path,"jsx", "scss")
+  updated_path, _ = string.gsub(updated_extension, "javascripts", "stylesheets")
+
+  file = io.open(updated_path, "w")
+
+  if file ~= nul then
+  else
+    io.write(vim.fn.expand('%:p'))
+  end
+
+  file:close()
+
+  print("created stylesheet:" .. updated_path)
+end
+
+
+vim.api.nvim_create_user_command('SCSS', create_scss, {})
+
+-- using netrw
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+
+-- ================
+-- keymap for netrw
+
+-- vim.api.nvim_set_keymap('n', '<leader>f', ':Lexplore<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>g', ':Lexplore %:p:h<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'dd', ':Lexplore %:p:h<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'da', ':Lexplore<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>v', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
+-- nnoremap <leader>dd :Lexplore %:p:h<CR>
+-- nnoremap <Leader>da :Lexplore<CR>
