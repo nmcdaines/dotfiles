@@ -138,4 +138,6 @@ return require('packer').startup(function()
     'glepnir/dashboard-nvim',
     config = get_setup("dashboard")
   }
+
+  use {'David-Kunz/jester'}
 end)
